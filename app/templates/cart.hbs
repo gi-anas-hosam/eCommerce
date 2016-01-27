@@ -1,0 +1,35 @@
+{{main-menu}}
+
+<h1>Cart</h1>
+<div class="container">
+<div class="table-responsive">          
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total Items Price</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+    {{#each content as |cartList|}}
+      <tr>
+        
+      	<td> {{cartList.name}} </td>
+  			<td> {{cartList.price}}$ </td>
+  			<td> {{input type="number" min="1" pattern="\d*" value=cartList.itemsNumber}} </td>
+  			<td> {{cartList.totalPrice}}$ </td>
+        <td> <img  {{action 'deleteItem' cartList.id}} src="/assets/images/dialog-close.png" > </td>
+      </tr>
+      {{/each}}
+    </tbody>
+ </table>
+
+ <h1 class="text-center"> Total Amount: {{totalMoney}}$ </h1>
+
+<br><br><br>
+ <button {{action 'goToCheckout'}} class="btn btn-default">Checkout</button>
+</div>
+</div>

@@ -1,0 +1,14 @@
+<div class="navbar navbar-default">
+    <div id="menu" class="container navbar-default ">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="#">eCommerce</a>
+	    </div>
+	    <ul class="nav navbar-nav navbar-right">
+			<li class="nav">{{#link-to 'index' tagName="a" }} Home {{/link-to}}</li>
+	    	<li class="nav">{{#link-to 'cart' tagName="a"}} Cart {{/link-to}}</li>
+	    	<li class="nav">{{#link-to 'dashboard.products' tagName="a"}} Admin Panel {{/link-to}}</li>
+	    </ul>
+  </div>
+</div>
+
+{{yield}}

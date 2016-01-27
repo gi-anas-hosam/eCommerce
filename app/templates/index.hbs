@@ -1,0 +1,19 @@
+{{main-menu}}
+
+<h1>Products</h1>
+
+<ul class="list-unstyled col-md-8">
+{{#each sortedRepos as  |product| }}
+	<li class="row">
+		<img class="img-thumbnail col-md-5" src={{product.poster}} alt="">
+		<div class='col-md-7'>
+			{{#link-to 'product' product.id tagName="h2"}} {{product.name}} {{/link-to}}			
+			<p>{{product.description}}</p>
+			<p>Price: ${{product.price}}</p>
+			<p>Items in Stock: {{product.itemsInStock}}</p>
+			<p> {{format-date product.date}} </p>
+			<button {{action 'addToCart' product.id product.name product.price product.itemsInStock}} class='btn btn-sucess'>Add To Cart</button>
+		</div>
+	</li>
+{{/each}}
+</ul>
