@@ -20,7 +20,7 @@ export default[
   {
       id: 3,
       name : 'Choclet 3',
-      description: 'A Stuff you can\'t control',
+      description: 'A Stuff you can\'t control. very long description. very long description. very long description.',
       price: 15,
       itemsInStock: "2",
       poster: 'http://www.lovenwishes.com/images/newchoco004.jpg',

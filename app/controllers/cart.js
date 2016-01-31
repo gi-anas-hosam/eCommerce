@@ -29,7 +29,7 @@ export default Ember.Controller.extend({
 
   }.observes('content.@each.itemsNumber'),
   disabledFn: function(){
-    self = this;
+    var self = this;
     this.store.findAll('cart').then(function(model){
       if(model.get('length') > 0){
         self.set('disabled1', false);
@@ -45,17 +45,17 @@ export default Ember.Controller.extend({
 			var error1 = false;
       var error2 = false;
 			this.get('model').toArray().forEach(function(item) {
-			    if(isNaN(parseInt(item.get('itemsNumber'))) || parseInt(item.get('itemsNumber')) < 1 ){
+			    if(isNaN(parseInt(item.get('itemsNumber'))) || parseInt(item.get('itemsNumber')) < 1 || item.get('itemsNumber') == "" ){
 			    	error1 = true;
-			    }
+          }
           else if(parseInt(item.get('itemsNumber')) > parseInt(item.get('itemsInStock'))){
             error2 = true;
           }
 			});
 			if(error1){
-				this.get('notifications').error('Items number must be valid and greter than 0.');
+				this.get('notifications').error('Items number must be valid and greater than 0.');
 			}
-      if(error2){
+      else if(error2){
         this.get('notifications').error('items number cannot exceed items in stock  number.');
       }
 			else{
