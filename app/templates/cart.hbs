@@ -2,7 +2,7 @@
 
 <h1>Cart</h1>
 <div class="container">
-<div class="table-responsive">          
+<div class="table-responsive">
   <table class="table">
     <thead>
       <tr>
@@ -16,10 +16,10 @@
     <tbody>
     {{#each content as |cartList|}}
       <tr>
-        
+
       	<td> {{cartList.name}} </td>
   			<td> {{cartList.price}}$ </td>
-  			<td> {{input type="number" min="1" pattern="\d*" value=cartList.itemsNumber}} </td>
+  			<td> {{input type="number" min="1" max=cartList.itemsInStock pattern="\d*" value=cartList.itemsNumber}} </td>
   			<td> {{cartList.totalPrice}}$ </td>
         <td> <img  {{action 'deleteItem' cartList.id}} src="/assets/images/dialog-close.png" > </td>
       </tr>
@@ -30,6 +30,6 @@
  <h1 class="text-center"> Total Amount: {{totalMoney}}$ </h1>
 
 <br><br><br>
- <button {{action 'goToCheckout'}} class="btn btn-default">Checkout</button>
+ <button disabled={{disabled1}} {{action 'goToCheckout'}} class="btn btn-default">Checkout</button>
 </div>
 </div>

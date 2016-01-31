@@ -5,16 +5,28 @@
 <ul class="list-unstyled col-md-8">
 {{#each sortedRepos as  |product| }}
 	<li class="row">
-		<img class="img-thumbnail col-md-5" src={{product.poster}} alt="">
+  {{#link-to 'dashboard.products.product' product.id }}
+      <img class="img-thumbnail col-md-5" src={{product.poster}} alt="">
+  {{/link-to}}
 		<div class='col-md-7'>
-			{{#link-to 'dashboard.products.product' product.id tagName="h2"}} {{product.name}} {{/link-to}}
-			<p>{{product.description}}</p>
+			<h2> {{product.name}} </h2>
+			<p>{{truncate-text product.description}}</p>
 			<p>Price: ${{product.price}}</p>
 			<p>Items in Stock: {{product.itemsInStock}}</p>
 			<p> {{format-date product.date}} </p>
 			{{#link-to 'dashboard.products.product' product.id tagName="button" class="btn btn-sucess"}} edit {{/link-to}}
-			<button  {{action 'deleteProduct' product.id}} class='btn btn-danger'>Delete</button>
+			<button {{action 'deletConfirm' product.id}} class='btn btn-danger'>Delete</button>
 		</div>
 	</li>
 {{/each}}
 </ul>
+
+{{#if isShowingModal}}
+  {{#modal-dialog close="cancel"
+  targetAttachment="center"
+  translucentOverlay=true}}
+      Are You Sure
+    <button {{action 'deleteProduct'}} class="btn btn-danger">Yes</button>
+    <button {{action 'cancel'}} class="btn ">No</button>
+  {{/modal-dialog}}
+{{/if}}

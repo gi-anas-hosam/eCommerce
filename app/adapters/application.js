@@ -3,7 +3,7 @@ import DS from 'ember-data';
 export default DS.RESTAdapter.extend({
 	namespace: 'api'
 });
-*/
+
 export default DS.FixtureAdapter.extend({
   queryFixtures: function(records, query, type) {
     return records.filter(function(record) {
@@ -15,4 +15,7 @@ export default DS.FixtureAdapter.extend({
         return true;
     });
   }
+});
+ */
+export default DS.RESTAdapter.extend({
 });

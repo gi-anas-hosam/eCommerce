@@ -9,10 +9,10 @@ export default Ember.Controller.extend({
 	notifications: service(),
 	sortedRepos: Ember.computed.sort('model', 'sortProperties'),
 	actions: {
-		addToCart: function(id, name, price,itemsInStock){
+    addToCart: function(id, name, price,itemsInStock){
 			var controller = this;
 			var itemFound = false;
-			this.store.find("cart").then(function(data){
+			this.store.findAll("cart").then(function(data){
 				data.forEach(function(item){
 			    	if(item.id == id){
 			    		itemFound = true;
@@ -31,8 +31,8 @@ export default Ember.Controller.extend({
 					Cart.save();
 					controller.get('notifications').success('Item Added to Cart');
 				}
-			});			
+			});
 		}
 	}
-	
+
 });

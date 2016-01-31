@@ -7,9 +7,11 @@ module.exports = function(defaults) {
     // Add options here
   });
   app.import('bower_components/bootstrap/dist/css/bootstrap.css');
+  app.import('bower_components/bootstrap/dist/js/bootstrap.js');
   app.import('bower_components/toastr/toastr.js');
   app.import('bower_components/toastr/toastr.css');
-  app.import('bower_components/moment/moment.js')
+  app.import('bower_components/moment/moment.js');
+
   // Use `app.import` to add additional libraries to the generated
   // output files.
   //

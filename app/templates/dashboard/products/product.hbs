@@ -1,27 +1,3 @@
 {{admin-menu}}
+{{product-management model=model title=title buttonText=buttonText manageProduct="UpdateProduct"}}
 
-<h1> Edit Product</h1>
-
- <form role="form" class="center-block" style="width:700px;">
-  <div class="form-group">
-    <label>Name:</label>
-    {{input type="text" value=model.name class="form-control"}}
-  </div>
-  <div class="form-group">
-    <label>Description:</label>
-    {{textarea value=model.description class="form-control"}}
-  </div>
-  <div class="form-group">
-    <label>Poster Url:</label>
-    {{input type="text" value=model.poster class="form-control"}}
-  </div>
-  <div class="form-group">
-    <label>Price:</label>
-    {{input type="number" min="1" value=model.price class="form-control"}}
-  </div>
-  <div class="form-group">
-    <label>Items in Stock:</label>
-    {{input type="number" min="0" value=model.itemsInStock class="form-control"}}
-  </div>
-  <button {{action 'UpdateProduct'}} class="btn btn-default">Update Product</button>
-</form>
